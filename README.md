@@ -1,9 +1,9 @@
 # \<Project Name\> by Chalice
 ## Roster
-Anastasia Lee: PM\\
-Andy Shyklo: \\
-Jack Blair: \\
-Jady Lei: \\
+Anastasia Lee: PM\
+Andy Shyklo: \
+Jack Blair: \
+Jady Lei: 
 
 ## Description of website
 
