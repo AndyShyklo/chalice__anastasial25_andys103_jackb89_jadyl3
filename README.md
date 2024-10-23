@@ -1,1 +1,13 @@
-# chalice_anastasial25_andys103_jackb89_jadyl3
+# <Project Name> by Chalice
+### Roster
+Anastasia Lee: PM
+Andy Shyklo: 
+Jack Blair: 
+Jady Lei: 
+
+### Description of website
+
+### Launch codes
+#### How to clone/install
+
+#### How to run
