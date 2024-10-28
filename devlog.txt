@@ -1,0 +1,9 @@
+anastasiaL -- 2024-10-28 06:48
+Updated README with header and task assignments
+Uploaded revised design doc
+Summary of changes:
+- elaborated on pages under front-end
+- fixed and added to front-end diagrams
+- modified site map so that /view and /edit are each one page
+- added notes below the site map
+- clarified details about permissions and comments
