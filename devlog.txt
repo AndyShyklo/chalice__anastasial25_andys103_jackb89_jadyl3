@@ -7,3 +7,10 @@ Summary of changes:
 - modified site map so that /view and /edit are each one page
 - added notes below the site map
 - clarified details about permissions and comments
+
+anastasiaL -- 2024-10-29 9:
+Continued to revise design doc:
+- added component map
+Added digital team flag
+Filled in "Install guide" and "Launch codes" sections of README
+Added functional app from previous assignment
