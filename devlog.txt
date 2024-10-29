@@ -8,7 +8,7 @@ Summary of changes:
 - added notes below the site map
 - clarified details about permissions and comments
 
-anastasiaL -- 2024-10-29 9:
+anastasiaL -- 2024-10-29 10:19
 Continued to revise design doc:
 - added component map
 Added digital team flag
