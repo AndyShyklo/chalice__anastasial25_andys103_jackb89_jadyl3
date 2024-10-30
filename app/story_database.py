@@ -14,12 +14,27 @@ if storiesDontExist:
     command = "CREATE TABLE stories (story_id INT AUTO_INCREMENT PRIMARY KEY, story_name)"
     c.execute(command)
 
-def addStory(story_name, author, first_chapter):
+# call whenever user adds a story. 
+# story_name, author, first_chapter, and date should all be strings.
+def addStory(story_name, author, first_chapter, date):
+    # create story table
     command = f"INSERT INTO stories (story_name) VALUES (?)"
     val = (story_name)
     c.execute(command, val)
-    command = f"CREATE TABLE chapters_for_{c.lastrowid} (story_id INT AUTO_INCREMENT PRIMARY KEY, story_name, authors_id, chapters)"
-    command = f"CREATE TABLE authors_for_{c.lastrowid} (story_id INT AUTO_INCREMENT PRIMARY KEY, story_name, authors_id, chapters)"
+    db.commit()
+    key = c.lastrowid
+    # create table for chapters using story_id
+    command = f"CREATE TABLE chapters_for_{key} (id INT AUTO_INCREMENT PRIMARY KEY, content, contributor, date)"
+    c.execute(command)
+    command = f"INSERT INTO chapters_for_{key} (content, contributor, date) VALUES (?, ?, ?)"
+    val = (first_chapter, author, date)
+    c.execute(command, val)
+    #create table for authors using storu_id
+    command = f"CREATE TABLE authors_for_{key} (order INT AUTO_INCREMENT PRIMARY KEY, author)"
+    c.execute(command)
+    command = f"INSERT INTO authors_for_{key} (author) VALUES (?)"
+    val = (author)
+    c.execute(command, val)
 
 
 
