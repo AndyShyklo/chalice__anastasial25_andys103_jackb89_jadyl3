@@ -27,3 +27,9 @@ jadyL -- 2024-10-30 01:11
 Created a database builder for the stories.
 Wrote database code for when a user creates a story
 Wrote comments describing what the function needs to be used properly.
+
+anastasiaL -- 2024-10-30 9:25
+Added home.html and register.html and put in preliminary code
+Added app route to /register
+Restructured site flow (edited app routes to / and /login)
+Note: As of now, home.html is never shown and /register is never reached
