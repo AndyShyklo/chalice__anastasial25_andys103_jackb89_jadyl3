@@ -15,7 +15,7 @@ Added digital team flag
 Filled in "Install guide" and "Launch codes" sections of README
 Added functional app from previous assignment
 
-anastasiaL -- 2024-10-29 10:19
+jadyL -- 2024-10-29 10:19
 Continued to revise design doc:
 - helped divy up tasks
 
