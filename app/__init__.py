@@ -3,8 +3,14 @@
 # October 2024
 
 import os
+import sqlite3
 from flask import Flask, session, render_template, request, redirect
 PASSWORD = "hello"
+
+user_file = "users.db"
+
+user = sqlite3.connect(user_file)
+cUser = user.cursor() 
 
 app = Flask(__name__)    #create Flask object
 
@@ -22,8 +28,19 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        cUser.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, access TEXT, viewable TABLE, editable TABLE)")
         if not (username and password):
             return render_template('register.html', message = "One or more fields empty; please try again.")
+        if (cUser.execute("NOT EXISTS (SELECT username FROM users WHERE username='" + username + "')")):
+            try:
+                cUser.execute("INSERT INTO users (" + username + ", " + password + ", Normal)")
+            except sqlite3.IntegrityError:
+                return render_template('register.html', message="Username already in use")
+        else:
+            if (password == cUser.execute("SELECT password FROM users WHERE username='" + username + "')")):
+                cUser.commit()
+                return redirect("/")
+        cUser.commit()
         return redirect("/login")
     return render_template('register.html')
 
