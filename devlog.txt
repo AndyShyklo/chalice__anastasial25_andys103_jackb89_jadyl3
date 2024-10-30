@@ -14,3 +14,12 @@ Continued to revise design doc:
 Added digital team flag
 Filled in "Install guide" and "Launch codes" sections of README
 Added functional app from previous assignment
+
+anastasiaL -- 2024-10-29 10:19
+Continued to revise design doc:
+- helped divy up tasks
+
+jadyL -- 2024-10-30 01:11
+Created a database builder for the stories.
+Wrote database code for when a user creates a story
+Wrote comments describing what the function needs to be used properly.
