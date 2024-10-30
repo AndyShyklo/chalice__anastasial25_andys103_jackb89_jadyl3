@@ -2,7 +2,7 @@
 ## Roster with roles
 Anastasia Lee: PM + Python\
 Andy Shyklo: SQL Database + HTML\
-Jack Blair: ?
+Jack Blair: ?\
 Jady Lei: SQL Database + HTML/CSS\
 (For detailed task assignments, see design doc)
 

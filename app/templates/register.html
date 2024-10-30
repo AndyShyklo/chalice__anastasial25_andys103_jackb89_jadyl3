@@ -9,7 +9,7 @@
 <html>
 
   <head>
-    <title> LOGIN PAGE </title>
+    <title> REGISTRATION PAGE </title>
   </head>
 
   <body>
@@ -18,23 +18,19 @@
     </h1>
     <h2>Chalice: Anastasia, Andy, Jack, Jady</h2>
 
-    <h3>
-      Enter your username below to login.
-    </h3>
-    <form action="/login" method="POST">
+    <form action="/register" method="POST">
       <label for="username">Username:</label>
       <input type="text" id="username" name="username">
       <br><br>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password">
       <br><br>
-      <input type="submit" name="sub1" value="Log in">
-      {% if message %}
-        <br><br>
-        {{message}}
-      {% endif %}
+      <input type="submit" name="sub1" value="Register">
     </form>
-    <br>
+    {% if message %}
+      <br><br>
+      {{message}}
+    {% endif %}
   </body>
 
 </html>
