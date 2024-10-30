@@ -15,8 +15,15 @@ Added digital team flag
 Filled in "Install guide" and "Launch codes" sections of README
 Added functional app from previous assignment
 
-anastasiaL -- 2024-10-29 11:01
+anastasiaL, andyS, jadyL -- 2024-10-29 10:30
 Added specific task assignments to design doc
+
+anastasiaL -- 2024-10-29 11:01
 Updated requirements.txt based on pip freeze
 Tested automatic pip install (successful)
 Updated roles and launch codes in README
+
+jadyL -- 2024-10-30 01:11
+Created a database builder for the stories.
+Wrote database code for when a user creates a story
+Wrote comments describing what the function needs to be used properly.
