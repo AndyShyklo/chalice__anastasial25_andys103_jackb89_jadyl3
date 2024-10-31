@@ -28,6 +28,29 @@ Created a database builder for the stories.
 Wrote database code for when a user creates a story
 Wrote comments describing what the function needs to be used properly.
 
+anastasiaL -- 2024-10-30 9:25
+Added home.html and register.html and put in preliminary code
+Added app route to /register
+Restructured site flow (edited app routes to / and /login)
+Note: As of now, home.html is never shown and /register is never reached
+
+anastasiaL -- 2024-10-30 10:57
+Jack returns! Discussed his role and task assignments and updated design doc and README accordingly
+As a result of external README review:
+- In install guide, changed formatting so that the git clone command can easily be copied
+- In launch codes, added instruction to download Python if necessary
+Learning/teaching how to create pull requests
+
+andyS -- 2024-10-30 20:09
+Edited and configured the database for users, which now should allow for users
+to both register and sign up, and all other cases are dealt with. 
+There should no longer be a way to go into another account, and users may not
+register under another account or log in without the right password
+Both pages log the user in, and the user is sent to a main page, where we can
+add our stories
+Question: Is there a better way to redirect and render template at the same time,
+so that both are in the same place?
+
 jadyL -- 2024-10-30 11:01
 Tested adding stories. debugging until it worked. but accessing the chapters didnt.
 turns out primary key was not working right.
