@@ -39,3 +39,13 @@ Jack returns! Discussed his role and task assignments and updated design doc and
 In install guide, changed formatting so that the git clone command can easily be copied
 In launch codes, added instruction to download Python if necessary
 Learning/teaching how to create pull requests
+
+andyS -- 2024-10-30 20:09
+Edited and configured the database for users, which now should allow for users
+to both register and sign up, and all other cases are dealt with. 
+There should no longer be a way to go into another account, and users may not
+register under another account or log in without the right password
+Both pages log the user in, and the user is sent to a main page, where we can
+add our stories
+Question: Is there a better way to redirect and render template at the same time,
+so that both are in the same place?
