@@ -27,3 +27,13 @@ jadyL -- 2024-10-30 01:11
 Created a database builder for the stories.
 Wrote database code for when a user creates a story
 Wrote comments describing what the function needs to be used properly.
+
+jadyL -- 2024-10-30 11:01
+Tested adding stories. debugging until it worked. but accessing the chapters didnt.
+turns out primary key was not working right.
+
+jadyL -- 2024-10-31 12:40
+Decision to turn nested tables into lists instead since sqlite doesn't really implement that easily.
+function to empty table
+Lists are a bad idea I made a table for chapters of all stories with a key of the story_id.
+it works!
