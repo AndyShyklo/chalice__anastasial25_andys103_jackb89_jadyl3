@@ -5,12 +5,6 @@
 import os
 import sqlite3
 from flask import Flask, session, render_template, request, redirect
-PASSWORD = "hello"
-
-user_file = "users.db"
-
-user = sqlite3.connect(user_file)
-cUser = user.cursor() 
 
 app = Flask(__name__)    #create Flask object
 
@@ -23,33 +17,58 @@ def home():
     # return render_template('home.html')
     return redirect("/login")
 
+@app.route("/registerer", methods=["POST"])
+def registerer():
+    return redirect("/register")
+
+@app.route("/loginer", methods=["POST"])
+def loginer():
+    return redirect("/login")
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    user_file = "users.db"
+
+    user = sqlite3.connect(user_file)
+    cUser = user.cursor() 
     if request.method == 'POST':
+        print("hi")
         username = request.form['username']
         password = request.form['password']
-        cUser.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, access TEXT, viewable TABLE, editable TABLE)")
+        cUser.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, access TEXT, viewable TEXT, editable TEXT)")
+        fetc = cUser.execute("SELECT username, password, access FROM users")
+        print(fetc.fetchall())
         if not (username and password):
             return render_template('register.html', message = "One or more fields empty; please try again.")
-        if (cUser.execute("NOT EXISTS (SELECT username FROM users WHERE username='" + username + "')")):
+        print((cUser.execute("SELECT 1 FROM users WHERE username=?", (username,))).fetchone())
+        print((cUser.execute("SELECT 1 FROM users WHERE username=?", (username,))).fetchone() == None)
+        if (cUser.execute("SELECT 1 FROM users WHERE username=?", (username,))).fetchone() == None:
             try:
-                cUser.execute("INSERT INTO users (" + username + ", " + password + ", Normal)")
+                cUser.execute("INSERT INTO users (username, password, access) VALUES (?, ?, ?)", (username, password, "Normal"))
+                user.commit()
+                session['username']=password
+                session['password']=username
+                return redirect("/")
             except sqlite3.IntegrityError:
                 return render_template('register.html', message="Username already in use")
-        else:
-            if (password == cUser.execute("SELECT password FROM users WHERE username='" + username + "')")):
-                cUser.commit()
-                return redirect("/")
-        cUser.commit()
-        return redirect("/login")
+        user.commit()
+        return render_template('register.html', message = "Username taken")
     return render_template('register.html')
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    user_file = "users.db"
+
+    user = sqlite3.connect(user_file)
+    cUser = user.cursor() 
     if request.method == 'POST':
         session['username'] = request.form['username']
         session['password'] = request.form['password']
-        if 'username' in session and session['password'] == PASSWORD:
+        cUser.execute("SELECT password FROM users WHERE username=?", (request.form['username'],))
+        res = cUser.fetchone()
+        if res is None:
+            return render_template('login.html', message="Username does not exist")
+        if 'username' in session and session['password'] == res[0]:
             return redirect("/")
         session.pop('username', None)
         session.pop('password', None)
@@ -61,6 +80,10 @@ def disp_logout():
     session.pop('username', None)
     session.pop('password', None)
     return render_template( 'logout.html' )
+
+@app.route("/main", methods=['POST'])
+def main():
+    return render_template("home.html")
     
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
