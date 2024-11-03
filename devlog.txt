@@ -72,3 +72,6 @@ change print statement to return statements.
 
 jadyL -- 2024-11-03 00:54
 returns list instead of list of tuples when selecting only one column of a table
+
+anastasiaL -- 2024-11-03 14:23
+Added project description to README
