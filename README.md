@@ -26,3 +26,4 @@ In the terminal,
 4. Install packages: `pip install -r requirements.txt`
 5. Change into the app directory: `cd app/`
 6. Run the Python program: `python3 __init__.py`
+7. Open the link to the website: http://127.0.0.1:5000 (or Ctrl + click the link in the terminal)
