@@ -39,6 +39,7 @@ Jack returns! Discussed his role and task assignments and updated design doc and
 As a result of external README review:
 - In install guide, changed formatting so that the git clone command can easily be copied
 - In launch codes, added instruction to download Python if necessary
+- In launch codes, added instruction to open the link to the website
 Learning/teaching how to create pull requests
 
 andyS -- 2024-10-30 20:09
@@ -51,11 +52,11 @@ add our stories
 Question: Is there a better way to redirect and render template at the same time,
 so that both are in the same place?
 
-jadyL -- 2024-10-30 11:01
+jadyL -- 2024-10-30 23:01
 Tested adding stories. debugging until it worked. but accessing the chapters didnt.
 turns out primary key was not working right.
 
-jadyL -- 2024-10-31 12:40
+jadyL -- 2024-10-31 00:40
 Decision to turn nested tables into lists instead since sqlite doesn't really implement that easily.
 function to empty table
 Lists are a bad idea I made a table for chapters of all stories with a key of the story_id.
