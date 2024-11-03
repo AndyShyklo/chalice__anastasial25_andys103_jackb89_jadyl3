@@ -51,13 +51,19 @@ def addChapter(story_id, content, author, date):
 def returnStories():
     c.execute("SELECT story_name FROM stories")
     rows = c.fetchall()
-    return rows
+    resp = []
+    for row in rows:
+        resp.append(row[0])
+    return resp
 
 # returns chapters of an id.
 def returnChapters(story_id):
     c.execute("SELECT content FROM chapters WHERE story_id =" + str(story_id))
     rows = c.fetchall()
-    return rows
+    resp = []
+    for row in rows:
+        resp.append(row[0])
+    return resp
         
 # if used for a table of contents make sure to truncate content!    
 def returnChaptersList(story_id):

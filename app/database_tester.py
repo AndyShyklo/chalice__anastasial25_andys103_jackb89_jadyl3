@@ -10,8 +10,8 @@ print("-------------------Creating Story--------------------------")
 deleteStories()
 createStories()
 story_id = addStory(title1, author, sentence1, date)
-returnStories()
-returnChapters(1)
+print(returnStories())
+print(returnChapters(1))
 
 
 print("-----------------Adding to story -------------------")
@@ -20,5 +20,5 @@ author = "Admin"
 # use military time?
 date2 = "11:09 October 31, 2024"
 addChapter(story_id, sentence2, author, date2)
-returnStories()
-returnChapters(1)
+print(returnStories())
+print(returnChapters(1))
