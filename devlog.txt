@@ -61,3 +61,14 @@ Decision to turn nested tables into lists instead since sqlite doesn't really im
 function to empty table
 Lists are a bad idea I made a table for chapters of all stories with a key of the story_id.
 it works!
+
+jadyL -- 2024-10-31 05:00
+test better and annotate tester better.
+explained how to format the flask logging in with andyS.
+
+jadyL -- 2024-10-31 17:00
+leave comments in my database file.
+change print statement to return statements.
+
+jadyL -- 2024-11-03 00:54
+returns list instead of list of tuples when selecting only one column of a table
