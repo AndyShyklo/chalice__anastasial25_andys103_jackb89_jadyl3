@@ -39,11 +39,11 @@ def addStory(story_name, author, first_chapter, date):
 
 def addChapter(story_id, content, author, date):
     # gets chapter count
-#     command = "SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id)
-    command = "SELECT * FROM stories "
+    command = "SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id)
+    # command = "SELECT chapter_count FROM stories "
     print(command)
     c.execute(command)
-    chapter_count = c.fetchall()
+    chapter_count = c.fetchone()[0]
     print(chapter_count)
     # add chapter to chapters
     command = "INSERT INTO chapters (story_id, chapter_id, content, author, date) VALUES (?,?,?,?,?)"
