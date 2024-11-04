@@ -75,3 +75,10 @@ returns list instead of list of tuples when selecting only one column of a table
 
 anastasiaL -- 2024-11-03 14:23
 Added project description to README
+
+jadyL -- 2024-11-04 00:50
+added chapter_id column to chapters and chapter_cound column to stories
+updated addStory and addChapter. (not tested yet)
+* todo: update design doc
+created deleteChapter and deleteStory (not tested yet)
+
