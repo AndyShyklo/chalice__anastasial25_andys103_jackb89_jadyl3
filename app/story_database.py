@@ -41,10 +41,8 @@ def addChapter(story_id, content, author, date):
     # gets chapter count
     command = "SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id)
     # command = "SELECT chapter_count FROM stories "
-    print(command)
     c.execute(command)
     chapter_count = c.fetchone()[0]
-    print(chapter_count)
     # add chapter to chapters
     command = "INSERT INTO chapters (story_id, chapter_id, content, author, date) VALUES (?,?,?,?,?)"
     val = (story_id, chapter_count+1, content, author, date)
@@ -59,12 +57,12 @@ def deleteChapter(story_id, chapter_id):
     # check if either exist
     # TODO
     # delete from chapters
-    command = "DELETE FROM chapters WHERE story_id = " + str(story_id) + "AND" + "chapter_id = " + str(chapter_id)
+    command = "DELETE FROM chapters WHERE story_id = " + str(story_id) + " AND " + "chapter_id = " + str(chapter_id)
     c.execute(command)
     db.commit()
     # update chaptercount for stories
     c.execute("SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id))
-    chapter_count = c.fetchone()
+    chapter_count = c.fetchone()[0]
     command = "UPDATE stories SET chapter_count = " + str(chapter_count-1) + "WHERE story_id = "+ str(story_id)
     return story_id
 
