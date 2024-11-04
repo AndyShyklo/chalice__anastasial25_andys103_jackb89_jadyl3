@@ -71,3 +71,9 @@ change print statement to return statements.
 
 jadyL -- 2024-11-03 00:54
 returns list instead of list of tuples when selecting only one column of a table
+
+jadyL -- 2024-11-04 00:50
+added chapter_id column to chapters and chapter_cound column to stories
+updated addStory and addChapter. (not tested yet)
+* todo: update design doc
+created deleteChapter and deleteStory (not tested yet)
