@@ -50,7 +50,7 @@ def register():
                 session['password']=username
                 return redirect("/")
             except sqlite3.IntegrityError:
-                return render_template('register.html', message="Username already in use")
+                return render_template('register.html', message="Integrity Error")
         user.commit()
         return render_template('register.html', message = "Username taken")
     return render_template('register.html')
@@ -64,10 +64,11 @@ def login():
     if request.method == 'POST':
         session['username'] = request.form['username']
         session['password'] = request.form['password']
+        cUser.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, access TEXT, viewable TEXT, editable TEXT)")
         cUser.execute("SELECT password FROM users WHERE username=?", (request.form['username'],))
         res = cUser.fetchone()
         if res is None:
-            return render_template('login.html', message="Username does not exist")
+            return render_template('login.html', message="Username does not exist; please register before logging in.")
         if 'username' in session and session['password'] == res[0]:
             return redirect("/")
         session.pop('username', None)
