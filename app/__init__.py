@@ -17,16 +17,17 @@ def home():
     # return render_template('home.html')
     return redirect("/login")
 
-@app.route("/registerer", methods=["POST"])
-def registerer():
-    return redirect("/register")
-
-@app.route("/loginer", methods=["POST"])
-def loginer():
-    return redirect("/login")
-
-@app.route("/register", methods=['GET', 'POST'])
+@app.route("/register", methods=["POST"])
 def register():
+    return render_template("register.html")
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    print("hi")
+    return render_template("login.html")
+
+@app.route("/registerauth", methods=['GET', 'POST'])
+def registerer():
     user_file = "users.db"
 
     user = sqlite3.connect(user_file)
@@ -55,8 +56,8 @@ def register():
         return render_template('register.html', message = "Username taken")
     return render_template('register.html')
 
-@app.route("/login", methods=['GET', 'POST'])
-def login():
+@app.route("/loginauth", methods=['GET', 'POST'])
+def loginer():
     user_file = "users.db"
 
     user = sqlite3.connect(user_file)
@@ -75,6 +76,19 @@ def login():
         session.pop('password', None)
         return render_template('login.html', message = "Invalid login; please try again.")
     return render_template('login.html')
+
+@app.route("/display", methods=['POST'])
+def display():
+    user_file = "users.db"
+
+    user = sqlite3.connect(user_file)
+    cUser = user.cursor() 
+    cUser.execute("SELECT * FROM users")
+    res = cUser.fetchall()
+    fst = "hiiii"
+    for row in res:
+        fst = fst + "[" + str(row) + "]"
+    return(render_template('login.html', message = fst))
 
 @app.route("/logout", methods=['POST'])
 def disp_logout():
