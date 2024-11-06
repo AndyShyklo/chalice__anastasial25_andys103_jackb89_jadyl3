@@ -82,3 +82,7 @@ updated addStory and addChapter. (not tested yet)
 * todo: update design doc
 created deleteChapter and deleteStory (not tested yet)
 
+anastasiaL -- 2024-11-06 10:20
+home page now returns home.html, fixed some login bugs
+added create.html, but not fully working
+sqlite3 programming error
