@@ -6,24 +6,29 @@ import sqlite3 #enable SQLite operations
 
 DB_FILE="stories.db"
 #open db if exists, otherwise create
-db = sqlite3.connect(DB_FILE) 
-c = db.cursor() #facilitate db ops
+# db = sqlite3.connect(DB_FILE) 
+# c = db.cursor() #facilitate db ops
 
 # storiesDontExist = (c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='stories'").fetchall() == [])
 # if storiesDontExist:
 #     command = "CREATE TABLE IF NOT EXISTS stories (story_id INT AUTO_INCREMENT PRIMARY KEY, story_name)"
 #     c.execute(command)
 def createStories():
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     command = "CREATE TABLE IF NOT EXISTS stories (story_id INTEGER PRIMARY KEY AUTOINCREMENT, story_name text NOT NULL, chapter_count INT)"
     c.execute(command)
     command = "CREATE TABLE IF NOT EXISTS chapters (story_id INT, chapter_id INT, content text NOT NULL, author, date)"
     c.execute(command)
+    db.commit()
 # """CREATE TABLE IF NOT EXISTS projects (id INTEGER PRIMARY KEY, name text NOT NULL, begin_date DATE, end_date DATE);"""
 
 '''change database---------------------------------------------------------------------------------------------'''
 # call whenever user adds a story. 
 # story_name, author, first_chapter, and date should all be strings.
 def addStory(story_name, author, first_chapter, date):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     # insert story into stories
     command = "INSERT INTO stories (story_name, chapter_count) VALUES (?,?)"
     val = (story_name,1)
@@ -38,6 +43,8 @@ def addStory(story_name, author, first_chapter, date):
     return key
 
 def addChapter(story_id, content, author, date):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     # gets chapter count
     command = "SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id)
     # command = "SELECT chapter_count FROM stories "
@@ -54,6 +61,8 @@ def addChapter(story_id, content, author, date):
     return story_id
 
 def deleteChapter(story_id, chapter_id):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     # check if either exist
     # TODO
     # delete from chapters
@@ -64,9 +73,12 @@ def deleteChapter(story_id, chapter_id):
     c.execute("SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id))
     chapter_count = c.fetchone()[0]
     command = "UPDATE stories SET chapter_count = " + str(chapter_count-1) + "WHERE story_id = "+ str(story_id)
+    db.commit()
     return story_id
 
 def deleteStory(story_id):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     # check if story exists
     # TODO
     # delete from stories
@@ -80,6 +92,8 @@ def deleteStory(story_id):
 '''access database-----------------------------------------------------------------------------------------'''
 # return story titles
 def returnStories():
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     c.execute("SELECT story_name FROM stories")
     rows = c.fetchall()
     resp = []
@@ -89,6 +103,8 @@ def returnStories():
 
 # returns chapters of an id.
 def returnChapters(story_id):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     c.execute("SELECT content FROM chapters WHERE story_id =" + str(story_id))
     rows = c.fetchall()
     resp = []
@@ -98,6 +114,8 @@ def returnChapters(story_id):
         
 # if used for a table of contents make sure to truncate content!    
 def returnChaptersList(story_id):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     c.execute("SELECT content, author, date FROM chapters WHERE story_id =" + str(story_id))
     rows = c.fetchall()
     return rows
@@ -108,7 +126,7 @@ def deleteStories():
     c.execute("DROP table stories")
     c.execute("DROP table chapters")
 
-db.commit() #save changes
+# db.commit() #save changes
 # c.execute("SELECT id, code FROM courses"):
 
 # db.close()

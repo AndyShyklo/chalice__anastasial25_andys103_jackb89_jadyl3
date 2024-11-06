@@ -86,3 +86,7 @@ anastasiaL -- 2024-11-06 10:20
 home page now returns home.html, fixed some login bugs
 added create.html, but not fully working
 sqlite3 programming error
+
+anastasiaL -- 2024-11-06 11:01
+fixed sqlite3 programming error by initializing the database and cursor in every database function
+create page works!
