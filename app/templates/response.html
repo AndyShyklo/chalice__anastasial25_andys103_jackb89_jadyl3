@@ -16,7 +16,15 @@
       Greetings, {{ username }}!
     </h1>
     <h2>Chalice: Anastasia, Andy, Jack, Jady</h2>
-    <h3>Click below to log out.</h3>
+    <form action="/create" method="POST">
+      <input type="submit" name="sub1" value="Create a story">
+    </form>
+    <form action="/edit" method="POST">
+      <input type="submit" name="sub1" value="Add to a story">
+    </form>
+    <form action="/view" method="POST">
+      <input type="submit" name="sub1" value="View stories">
+    </form>
     <form action="/logout" method="POST">
       <input type="submit" name="sub1" value="Log out">
     </form>
