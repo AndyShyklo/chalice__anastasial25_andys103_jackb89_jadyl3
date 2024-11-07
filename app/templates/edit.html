@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+    Chalice: Anastasia, Andy, Jack, Jady
+    SoftDev
+    Oct 2024
+-->
+
+<html>
+
+    <head>
+        <link href="static/style.css" rel="stylesheet" />
+        <title> Chalice of Overflowing Stories </title>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1> Chalice of Overflowing Stories </h1>
+        </header>
+
+        <main class="container">
+            <nav>
+                <br>
+                <ul>
+                    <li> <a href="http://127.0.0.1:5000/">Home</a> </li>
+                    <li> <a href="http://127.0.0.1:5000/create">Create a story</a> </li>
+                    <li> <a href="http://127.0.0.1:5000/editable">Edit a story</a> </li>
+                    <li style="float:right"> <a href="http://127.0.0.1:5000/logout">Log out</a> </li>
+                </ul>
+            </nav>
+        </main>
+
+        <body>
+            <h1 style="font-weight:normal"><strong>{{story[1]}}</strong> by {{story[3]}}</h1>
+            <h2>Previous chapter: {{story[2][-1]}}</h2>
+            <form action="/editcomplete" method="post">
+                <input type="hidden" name="story" value="{{story}}">
+                <textarea name="new_chapter" rows="10" cols="50""></textarea>
+                <br>
+                <button type="submit">Submit Chapter</button>
+            </form>
+        </body>
+
+        <footer>
+            Copyright © 2024 Chalice
+        </footer>
+
+    </body>
+
+</html>
