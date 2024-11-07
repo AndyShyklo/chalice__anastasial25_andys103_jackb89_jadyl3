@@ -1,13 +1,13 @@
 # Chalice of Overflowing Stories by Chalice
 ## Roster with roles
-Anastasia Lee: PM + Python\
+Anastasia Lee: PM + Python + HTML/CSS\
 Andy Shyklo: SQL Database + HTML\
-Jack Blair: Debug + HTML/CSS\
+Jack Blair: ?\
 Jady Lei: SQL Database + HTML\
 (For detailed task assignments, see design doc)
 
 ## Description of website
-Our project is a collaborative story-telling website. Upon registering, users can log into their account to create, edit, or view stories. However, when adding a chapter to a story, users are only shown the title and the latest update; they cannot view an entire story until they have edited it or forfeited their right to edit it. While viewing a story, users can also comment in the comments section or on any chapter within the story. Website admins can create, edit, view, comment on, and delete all stories. All logged-in users can see a list of the stories they have contributed to on their home page, and can log out at any time.
+Our project is a collaborative story-telling website. Upon registering, users can log into their account to create, edit, or view stories. However, when adding a chapter to a story, users are only shown the title and the latest update; they cannot view an entire story until they have edited it. All logged-in users can see a list of the stories they have contributed to on their home page, and can log out at any time.
 
 ## Install guide
 ### How to clone/install
