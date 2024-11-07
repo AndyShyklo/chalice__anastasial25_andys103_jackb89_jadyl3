@@ -1,9 +1,9 @@
 # Chalice of Overflowing Stories by Chalice
 ## Roster with roles
 Anastasia Lee: PM + Python + HTML/CSS\
-Andy Shyklo: SQL Database + HTML\
+Andy Shyklo: User SQL Database + HTML\
 Jack Blair: ?\
-Jady Lei: SQL Database + HTML\
+Jady Lei: Story SQL Database\
 (For detailed task assignments, see design doc)
 
 ## Description of website

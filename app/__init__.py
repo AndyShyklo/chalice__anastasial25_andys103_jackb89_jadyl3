@@ -30,7 +30,7 @@ def home():
     user.commit()
     db.commit()
     if 'username' not in session:
-        return redirect('/login')
+        return render_template('home.html')
   
     cUser.execute("SELECT viewable FROM users WHERE username = ?", (session['username'],))
     row=cUser.fetchone()
