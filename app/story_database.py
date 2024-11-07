@@ -101,6 +101,12 @@ def returnStories():
         resp.append(row[0])
     return resp
 
+def returnStoryTitle(story_id):
+    c.execute("SELECT story_name FROM stories WHERE story_id =" + str(story_id))
+    rows = c.fetchall()
+    resp = rows[0]
+    return resp[0]
+
 # returns chapters of an id.
 def returnChapters(story_id):
     db = sqlite3.connect(DB_FILE) 
@@ -111,6 +117,12 @@ def returnChapters(story_id):
     for row in rows:
         resp.append(row[0])
     return resp
+
+def returnAuthor(story_id):
+    c.execute("SELECT author FROM chapters WHERE story_id =" + str(story_id))
+    rows = c.fetchall()
+    resp = rows[0]
+    return resp[0]
         
 # if used for a table of contents make sure to truncate content!    
 def returnChaptersList(story_id):
