@@ -13,21 +13,20 @@ app = Flask(__name__)    #create Flask object
 app.secret_key = os.urandom(32)
 
 @app.route("/", methods=['GET', 'POST'])
-def test():
-    return render_template('temp.html')
+# def test():
+#     return render_template('story.html')
 
 def home():
     if 'username' in session:
         return render_template( 'response.html', username = session['username'] )
     return render_template('home.html')
 
-@app.route("/register", methods=["POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     return render_template("register.html")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    print("hi")
     return render_template("login.html")
 
 @app.route("/registerauth", methods=['GET', 'POST'])

@@ -22,20 +22,23 @@ h1 {
 
 .container {
     display: flex;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 0;
 }
 
 nav {
-    flex: 1;
+    flex: 4;
 }
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
+    background-color: #a1a1a1;
+  }
+
+  li {
+    float: left;
   }
   
   li a {

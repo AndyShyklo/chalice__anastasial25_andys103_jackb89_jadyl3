@@ -1,34 +1,48 @@
 <!DOCTYPE html>
-<!-- 
-  Chalice: Anastasia, Andy, Jack, Jady
-  SoftDev
-  Oct 2024
- -->
+<!--
+    peaches & mangoes: Anastasia, Nia, Naomi
+    SoftDev
+    Oct 2024
+-->
 
 <html>
 
-  <head>
-    <title> Chalice of Overflowing Stories </title>
-  </head>
+    <head>
+        <link href="static/style.css" rel="stylesheet" />
+        <title> Chalice of Overflowing Stories </title>
 
-  <body>
-    <h1>
-      Greetings, {{ username }}!
-    </h1>
-    <h2>Chalice: Anastasia, Andy, Jack, Jady</h2>
-    <form action="/create" method="POST">
-      <input type="submit" name="sub1" value="Create a story">
-    </form>
-    <form action="/edit" method="POST">
-      <input type="submit" name="sub1" value="Add to a story">
-    </form>
-    <form action="/view" method="POST">
-      <input type="submit" name="sub1" value="View stories">
-    </form>
-    <form action="/logout" method="POST">
-      <input type="submit" name="sub1" value="Log out">
-    </form>
+    </head>
 
-  </body>
+    <body>
+
+        <header>
+            <h1> Chalice of Overflowing Stories </h1>
+        </header>
+
+        <main class="container">
+            <nav>
+                <br>
+                <ul>
+                    <li> <a href="http://127.0.0.1:5000/">Home</a> </li>
+                    <li> <a href="http://127.0.0.1:5000/create">Create a story</a> </li>
+                    <li> <a href="http://127.0.0.1:5000/editable">Edit a story</a> </li>
+                    <li style="float:right"> <a href="http://127.0.0.1:5000/logout">Log out</a> </li>
+                </ul>
+
+            </nav>
+        </main>
+
+        <main class="container">
+          <div>
+            <h2> Welcome, {{username}}! </h2>
+            <h2> Stories you've contributed to: </h2>
+        </div>
+        </main>
+
+        <footer>
+            Copyright © 2024 Chalice
+        </footer>
+
+    </body>
 
 </html>

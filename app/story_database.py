@@ -102,6 +102,8 @@ def returnStories():
     return resp
 
 def returnStoryTitle(story_id):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     c.execute("SELECT story_name FROM stories WHERE story_id =" + str(story_id))
     rows = c.fetchall()
     resp = rows[0]
@@ -119,6 +121,8 @@ def returnChapters(story_id):
     return resp
 
 def returnAuthor(story_id):
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     c.execute("SELECT author FROM chapters WHERE story_id =" + str(story_id))
     rows = c.fetchall()
     resp = rows[0]
@@ -135,6 +139,8 @@ def returnChaptersList(story_id):
 '''--------------------------------------------------------------------------------------------------------'''
 #for admin stuyff
 def deleteStories():
+    db = sqlite3.connect(DB_FILE) 
+    c = db.cursor()
     c.execute("DROP table stories")
     c.execute("DROP table chapters")
 

@@ -1,29 +1,46 @@
 <!DOCTYPE html>
-<!-- 
-  Chalice: Anastasia, Andy, Jack, Jady
-  SoftDev
-  Oct 2024
- -->
+<!--
+    peaches & mangoes: Anastasia, Nia, Naomi
+    SoftDev
+    Oct 2024
+-->
 
 <html>
 
-  <head>
-    <title> HOME PAGE </title>
-  </head>
+    <head>
+        <link href="static/style.css" rel="stylesheet" />
+        <title> Chalice of Overflowing Stories </title>
 
-  <body>
-    <h1>
-      Chalice of Overflowing Stories
-    </h1>
-    <h2>Chalice: Anastasia, Andy, Jack, Jady</h2>
-    <form action="/login" method="POST">
-      <input type="submit" name="sub1" value="Sign in">
-    </form>
+    </head>
 
-    <form action="/register" method="POST">
-      <input type="submit" name="sub1" value="Register">
-    </form>
+    <body>
 
-  </body>
+        <header>
+            <h1> Chalice of Overflowing Stories </h1>
+        </header>
+
+        <main class="container">
+            <nav>
+                <br>
+                <ul>
+                    <li> <a href="http://127.0.0.1:5000/">Home</a> </li>
+                    <li style="float:right"> <a href="http://127.0.0.1:5000/login">Log in</a> </li>
+                    <li style="float:right"> <a href="http://127.0.0.1:5000/registerauth">Register</a> </li>
+                </ul>
+
+            </nav>
+        </main>
+
+        <main class="container">
+          <div>
+            <h2> Hello! Please register or log in. </h2>
+        </div>
+        </main>
+
+        <footer>
+            Copyright © 2024 Chalice
+        </footer>
+
+    </body>
 
 </html>
