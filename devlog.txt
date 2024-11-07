@@ -90,3 +90,7 @@ sqlite3 programming error
 anastasiaL -- 2024-11-06 11:01
 fixed sqlite3 programming error by initializing the database and cursor in every database function
 create page works!
+
+anastasiaL -- 2024-11-06 23:40
+added style.css
+formatted all pages (nav bar, header, footer, body)
