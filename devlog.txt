@@ -132,3 +132,9 @@ Made a system to have only some elements show per person
 Bugfixxed story_database.Python
 Added commit messages for both story and user
 Made in-url links and information to the user to not make redirects confusing
+
+anastasiaL, jadyL -- 2024-11-07 7:35
+updated design doc: 
+- cut features like catalog, comments section, view page
+- revised task assignments
+updated README task assignments and description
