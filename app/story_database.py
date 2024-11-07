@@ -18,15 +18,21 @@ def createStories():
     c = db.cursor()
     command = "CREATE TABLE IF NOT EXISTS stories (story_id INTEGER PRIMARY KEY AUTOINCREMENT, story_name text NOT NULL, chapter_count INT)"
     c.execute(command)
-    command = "CREATE TABLE IF NOT EXISTS chapters (story_id INT, chapter_id INT, content text NOT NULL, author, date)"
+    command = "CREATE TABLE IF NOT EXISTS chapters (story_id INT, chapter_id INT, content text NOT NULL, author)"
     c.execute(command)
+    user_file = "users.db"
+
+    user = sqlite3.connect(user_file)
+    cUser = user.cursor() 
+    cUser.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, access TEXT, viewable INTEGER[], editable INTEGER[])")
+    user.commit()
     db.commit()
 # """CREATE TABLE IF NOT EXISTS projects (id INTEGER PRIMARY KEY, name text NOT NULL, begin_date DATE, end_date DATE);"""
 
 '''change database---------------------------------------------------------------------------------------------'''
 # call whenever user adds a story. 
 # story_name, author, first_chapter, and date should all be strings.
-def addStory(story_name, author, first_chapter, date):
+def addStory(story_name, author, first_chapter):
     db = sqlite3.connect(DB_FILE) 
     c = db.cursor()
     # insert story into stories
@@ -36,13 +42,24 @@ def addStory(story_name, author, first_chapter, date):
     db.commit()
     key = c.lastrowid
     # insert chapter into chapters with the story_id
-    command = "INSERT INTO chapters (story_id, chapter_id, content, author, date) VALUES (?,?,?,?,?)"
-    val = (key, 1, first_chapter, author, date)
+    command = "INSERT INTO chapters (story_id, chapter_id, content, author) VALUES (?,?,?,?)"
+    val = (key, 1, first_chapter, author)
     c.execute(command, val)
+    user_file = "users.db"
+    user = sqlite3.connect(user_file)
+    cUser = user.cursor() 
+    cUser.execute("SELECT editable FROM users WHERE username = ?", (author,))
+    editableS = cUser.fetchone()[0]
+    if editableS:
+        newEd = f"{editableS},{key}"
+    else:
+        newEd = str(key)
+    cUser.execute("UPDATE users SET editable = ? WHERE username = ?", (newEd, author))
     db.commit()
+    user.commit()
     return key
 
-def addChapter(story_id, content, author, date):
+def addChapter(story_id, content, author):
     db = sqlite3.connect(DB_FILE) 
     c = db.cursor()
     # gets chapter count
@@ -51,8 +68,8 @@ def addChapter(story_id, content, author, date):
     c.execute(command)
     chapter_count = c.fetchone()[0]
     # add chapter to chapters
-    command = "INSERT INTO chapters (story_id, chapter_id, content, author, date) VALUES (?,?,?,?,?)"
-    val = (story_id, chapter_count+1, content, author, date)
+    command = "INSERT INTO chapters (story_id, chapter_id, content, author) VALUES (?,?,?,?)"
+    val = (story_id, chapter_count+1, content, author)
     c.execute(command, val)
     # update chapter count
     command = "UPDATE stories SET chapter_count = "+ str(chapter_count+1) +" WHERE story_id = "+ str(story_id)
@@ -132,7 +149,7 @@ def returnAuthor(story_id):
 def returnChaptersList(story_id):
     db = sqlite3.connect(DB_FILE) 
     c = db.cursor()
-    c.execute("SELECT content, author, date FROM chapters WHERE story_id =" + str(story_id))
+    c.execute("SELECT content, author FROM chapters WHERE story_id =" + str(story_id))
     rows = c.fetchall()
     return rows
     

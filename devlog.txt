@@ -66,12 +66,26 @@ jadyL -- 2024-10-31 05:00
 test better and annotate tester better.
 explained how to format the flask logging in with andyS.
 
+andyS -- 2024-10-31
+Started the login system to log and trace user database
+Created html elements and routing
+Tweaked response, root, and login pages
+Created static tables for github and without loss of data
+
 jadyL -- 2024-10-31 17:00
 leave comments in my database file.
 change print statement to return statements.
 
 jadyL -- 2024-11-03 00:54
 returns list instead of list of tuples when selecting only one column of a table
+
+andyS -- 2024-11-03 13:02
+Worked on register.html page
+Added integration to login and register in each page
+Made both login and register buttons on opposite html pages
+Made test displays for users
+Edited SQL database to accomodate lists and viewable/editable stories
+Added provisions for admin access (not implemented)
 
 anastasiaL -- 2024-11-03 14:23
 Added project description to README
@@ -82,6 +96,13 @@ updated addStory and addChapter. (not tested yet)
 * todo: update design doc
 created deleteChapter and deleteStory (not tested yet)
 
+andyS -- 2024-11-04 11:02
+fixed user database again, with login and starting screens
+started working on basic home screen, nav and side bars
+tested rows and for loops within html files
+worked on alternative ways to show register and login pages, as 
+those often had an alternative app directory.
+
 anastasiaL -- 2024-11-06 10:20
 home page now returns home.html, fixed some login bugs
 added create.html, but not fully working
@@ -91,6 +112,23 @@ anastasiaL -- 2024-11-06 11:01
 fixed sqlite3 programming error by initializing the database and cursor in every database function
 create page works!
 
+andyS -- 2024 11-06 22:45
+Updated SQL lists for both stories and users to allow for both to interact
+Used new html files to integrate user into the actual website functions
+
 anastasiaL -- 2024-11-06 23:40
 added style.css
 formatted all pages (nav bar, header, footer, body)
+
+andyS -- 2024 11-06 5:54
+Created editable.html which can show all editable stories
+Added better buttons and graphics, and made it more organized
+Created edit.html to allow for editing after selecting editable document
+Fixed logout bug that didn't allow for logouts to occur
+Bugfixxed a lot of issues related to editing stories
+Fixed removing or adding or updating stories in the SQL for both users and stories
+Created styling and new div elements for an organized list of items
+Made a system to have only some elements show per person
+Bugfixxed story_database.Python
+Added commit messages for both story and user
+Made in-url links and information to the user to not make redirects confusing

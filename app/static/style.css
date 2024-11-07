@@ -24,6 +24,7 @@ h1 {
     display: flex;
     margin-left: 20px;
     margin-right: 0;
+    width:1000px;
 }
 
 nav {
@@ -66,4 +67,61 @@ footer {
     color: #000000;
     text-align: right;
     padding: 10px;
+}
+
+.box1 {
+    width:300px;
+    padding: 10px;
+    height: 100px;
+    color:#000;
+}
+
+.stainer {
+    display: flex;
+    justify-content: left; 
+    margin-top: 20px; 
+    margin-left: 50px;
+}
+
+.stain {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 500px;
+}
+
+.sbox {
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.sdet {
+    display: flex;
+    flex-direction: column;
+}
+
+.stitle {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+.sau {
+    font-size: 14px;
+    color: #666;
+}
+
+.edit {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }

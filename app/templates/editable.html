@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+    Chalice: Anastasia, Andy, Jack, Jady
+    SoftDev
+    Oct 2024
+-->
+
+<html>
+
+    <head>
+        <link href="static/style.css" rel="stylesheet" />
+        <title> Chalice of Overflowing Stories </title>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1> Chalice of Overflowing Stories </h1>
+        </header>
+
+        <main class="container">
+            <nav>
+                <br>
+                <ul>
+                    <li> <a href="http://127.0.0.1:5000/">Home</a> </li>
+                    <li> <a href="http://127.0.0.1:5000/create">Create a story</a> </li>
+                    <li> <a href="http://127.0.0.1:5000/editable">Edit a story</a> </li>
+                    <li style="float:right"> <a href="http://127.0.0.1:5000/logout">Log out</a> </li>
+                </ul>
+
+            </nav>
+        </main>
+
+        <main class="container">
+          <div>
+            <h2> Welcome, {{username}}! </h2>
+            <h2> Stories you can edit: </h2>
+        </div>
+        <div class="stain-container">
+            <div class="stain">
+                {% for row in rows %}
+                <div class="sbox">
+                    <div class="sdet">
+                        <p class="stitle" style="font-weight:normal"><strong>{{row[1]}}</strong> by {{row[3]}}</p>
+                        <p class="sau">{{row[2][-1]}}</p>
+                    </div>
+                    <form action="/edit" method="get">
+                        <input type="hidden" name="story_id" value={{row[0]}}>
+                        <button type="submit" style="width:50px" class="edit">Edit</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        </main>
+
+        <footer>
+            Copyright © 2024 Chalice
+        </footer>
+
+    </body>
+
+</html>
