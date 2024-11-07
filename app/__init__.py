@@ -104,13 +104,17 @@ def disp_logout():
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
-    createStories()
+    return render_template( 'create.html' )
+
+@app.route("/creator", methods=["GET", "POST"])
+def creator():
     if request.method == 'POST':
         title = request.form['title']
         first = request.form['first']
         if (not (title and first)):
             return render_template( 'create.html', message="please enter a title and a first sentence")
         addStory(title, session['username'], first, datetime.now())
+        return redirect("/")
     return render_template( 'create.html' )
     
 if __name__ == "__main__": #false if this file imported as module
