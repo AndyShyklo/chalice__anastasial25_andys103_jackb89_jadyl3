@@ -1,0 +1,66 @@
+/* 
+    peaches & mangoes: Anastasia, Nia, Naomi
+    SoftDev
+    Oct 2024
+*/
+html {
+    background-color: #ffffff;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    background-color: #ffffff;
+    color: black;
+}
+
+h1 {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.container {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+nav {
+    flex: 1;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+  }
+  
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color on hover */
+  li a:hover {
+    background-color: #555;
+    color: white;
+  }
+
+.container div {
+    flex: 4;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: right;
+    padding: 10px;
+}

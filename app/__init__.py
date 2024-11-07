@@ -13,6 +13,9 @@ app = Flask(__name__)    #create Flask object
 app.secret_key = os.urandom(32)
 
 @app.route("/", methods=['GET', 'POST'])
+def test():
+    return render_template('temp.html')
+
 def home():
     if 'username' in session:
         return render_template( 'response.html', username = session['username'] )
@@ -92,7 +95,7 @@ def display():
         fst = fst + "[" + str(row) + "]"
     return(render_template('login.html', message = fst))
 
-@app.route("/logout", methods=['POST'])
+@app.route("/logout", methods=['GET', 'POST'])
 def disp_logout():
     session.pop('username', None)
     session.pop('password', None)
