@@ -5,14 +5,7 @@
 import sqlite3 #enable SQLite operations
 
 DB_FILE="stories.db"
-#open db if exists, otherwise create
-# db = sqlite3.connect(DB_FILE) 
-# c = db.cursor() #facilitate db ops
 
-# storiesDontExist = (c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='stories'").fetchall() == [])
-# if storiesDontExist:
-#     command = "CREATE TABLE IF NOT EXISTS stories (story_id INT AUTO_INCREMENT PRIMARY KEY, story_name)"
-#     c.execute(command)
 def createStories():
     db = sqlite3.connect(DB_FILE) 
     c = db.cursor()
@@ -20,13 +13,6 @@ def createStories():
     c.execute(command)
     command = "CREATE TABLE IF NOT EXISTS chapters (story_id INT, chapter_id INT, content text NOT NULL, author)"
     c.execute(command)
-    user_file = "users.db"
-
-    user = sqlite3.connect(user_file)
-    cUser = user.cursor() 
-    cUser.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, access TEXT, viewable INTEGER[], editable INTEGER[])")
-    user.commit()
-    db.commit()
 # """CREATE TABLE IF NOT EXISTS projects (id INTEGER PRIMARY KEY, name text NOT NULL, begin_date DATE, end_date DATE);"""
 
 '''change database---------------------------------------------------------------------------------------------'''
@@ -45,27 +31,16 @@ def addStory(story_name, author, first_chapter):
     command = "INSERT INTO chapters (story_id, chapter_id, content, author) VALUES (?,?,?,?)"
     val = (key, 1, first_chapter, author)
     c.execute(command, val)
-    user_file = "users.db"
-    user = sqlite3.connect(user_file)
-    cUser = user.cursor() 
-    cUser.execute("SELECT editable FROM users WHERE username = ?", (author,))
-    editableS = cUser.fetchone()[0]
-    if editableS:
-        newEd = f"{editableS},{key}"
-    else:
-        newEd = str(key)
-    cUser.execute("UPDATE users SET editable = ? WHERE username = ?", (newEd, author))
     db.commit()
-    user.commit()
     return key
 
 def addChapter(story_id, content, author):
     db = sqlite3.connect(DB_FILE) 
     c = db.cursor()
     # gets chapter count
-    command = "SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id)
+    # command = "SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id)
     # command = "SELECT chapter_count FROM stories "
-    c.execute(command)
+    c.execute("SELECT chapter_count FROM stories WHERE story_id=?", (story_id,))
     chapter_count = c.fetchone()[0]
     # add chapter to chapters
     command = "INSERT INTO chapters (story_id, chapter_id, content, author) VALUES (?,?,?,?)"
@@ -162,6 +137,5 @@ def deleteStories():
     c.execute("DROP table chapters")
 
 # db.commit() #save changes
-# c.execute("SELECT id, code FROM courses"):
 
 # db.close()

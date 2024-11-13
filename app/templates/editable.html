@@ -34,25 +34,31 @@
 
         <main class="container">
           <div>
-            <h2> Welcome, {{username}}! </h2>
             <h2> Stories you can edit: </h2>
+            {% if message %}
+                <br>
+                {{message}}
+            {% endif %}
         </div>
-        <div class="stain-container">
-            <div class="stain">
-                {% for row in rows %}
-                <div class="sbox">
-                    <div class="sdet">
-                        <p class="stitle" style="font-weight:normal"><strong>{{row[1]}}</strong> by {{row[3]}}</p>
-                        <p class="sau">{{row[2][-1]}}</p>
+        </main>
+
+        <main class="container">
+            <div class="stain-container">
+                <div class="stain">
+                    {% for row in rows %}
+                    <div class="sbox">
+                        <div class="sdet">
+                            <p class="stitle" style="font-weight:normal"><strong>{{row[1]}}</strong> by {{row[3]}}</p>
+                            <p class="sau">{{row[2][-1]}}</p>
+                        </div>
+                        <form action="/edit" method="get">
+                            <input type="hidden" name="story_id" value={{row[0]}}>
+                            <button type="submit" style="width:50px" class="edit">Edit</button>
+                        </form>
                     </div>
-                    <form action="/edit" method="get">
-                        <input type="hidden" name="story_id" value={{row[0]}}>
-                        <button type="submit" style="width:50px" class="edit">Edit</button>
-                    </form>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-        </div>
         </main>
 
         <footer>

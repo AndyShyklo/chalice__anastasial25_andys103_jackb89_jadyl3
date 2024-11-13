@@ -36,21 +36,28 @@
           <div>
             <h2> Welcome, {{username}}! </h2>
             <h2> Stories you've contributed to: </h2>
+            {% if message %}
+                <br>
+                {{message}}
+            {% endif %}
         </div>
-        <div class="stain-container">
-            <div class="stain">
-                {% for row in rows %}
-                <div class="sbox">
-                    <div class="sdet">
-                        <p class="stitle" style="font-weight:normal"><strong>{{row[1]}}</strong> by {{row[3]}}</p>
-                        {% for p in row[2] %}
-                        <p class="sau">{{p}}</p>
-                        {% endfor %}
+        </main>
+
+        <main class="container">
+            <div class="stain-container">
+                <div class="stain">
+                    {% for row in rows %}
+                    <div class="sbox">
+                        <div class="sdet">
+                            <p class="stitle" style="font-weight:normal"><strong>{{row[1]}}</strong> by {{row[3]}}</p>
+                            {% for p in row[2] %}
+                            <p class="sau">{{p}}</p>
+                            {% endfor %}
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-        </div>
         </main>
         
 

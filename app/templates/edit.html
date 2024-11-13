@@ -31,16 +31,23 @@
             </nav>
         </main>
 
-        <body>
-            <h1 style="font-weight:normal"><strong>{{story[1]}}</strong> by {{story[3]}}</h1>
-            <h2>Previous chapter: {{story[2][-1]}}</h2>
-            <form action="/editcomplete" method="post">
-                <input type="hidden" name="story" value="{{story}}">
-                <textarea name="new_chapter" rows="10" cols="50""></textarea>
-                <br>
-                <button type="submit">Submit Chapter</button>
-            </form>
-        </body>
+        <main class="container">
+            <div>
+                <h1 style="font-weight:normal"><strong>{{story[1]}}</strong> by {{story[3]}}</h1>
+                <h2>Previous chapter: {{story[2][-1]}}</h2>
+                <h2>New chapter:</h2>
+                <form action="/editcomplete" method="GET, POST">
+                    <input type="hidden" id="story" name="story" value="{{story[0]}}">
+                    <textarea name="new_chapter" rows="6" cols="50""></textarea>
+                    <br><br>
+                    <button type="submit" style="width:80px" class="button">Submit</button>
+                </form>
+                {% if message %}
+                  <br><br>
+                  {{message}}
+                {% endif %}
+            </div>
+        </main>
 
         <footer>
             Copyright © 2024 Chalice
