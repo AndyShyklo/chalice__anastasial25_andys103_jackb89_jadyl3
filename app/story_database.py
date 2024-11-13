@@ -38,8 +38,6 @@ def addChapter(story_id, content, author):
     db = sqlite3.connect(DB_FILE) 
     c = db.cursor()
     # gets chapter count
-    # command = "SELECT chapter_count FROM stories WHERE story_id = "+ str(story_id)
-    # command = "SELECT chapter_count FROM stories "
     c.execute("SELECT chapter_count FROM stories WHERE story_id=?", (story_id,))
     chapter_count = c.fetchone()[0]
     # add chapter to chapters

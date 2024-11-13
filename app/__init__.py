@@ -3,7 +3,6 @@
 # October 2024
 
 import os
-import sqlite3
 from flask import Flask, session, render_template, request, redirect
 from story_database import *
 from user_database import *

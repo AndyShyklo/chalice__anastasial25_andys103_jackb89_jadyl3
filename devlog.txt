@@ -129,7 +129,7 @@ Bugfixxed a lot of issues related to editing stories
 Fixed removing or adding or updating stories in the SQL for both users and stories
 Created styling and new div elements for an organized list of items
 Made a system to have only some elements show per person
-Bugfixxed story_database.Python
+Bugfixxed story_database.py
 Added commit messages for both story and user
 Made in-url links and information to the user to not make redirects confusing
 
@@ -138,3 +138,16 @@ updated design doc:
 - cut features like catalog, comments section, view page
 - revised task assignments
 updated README task assignments and description
+
+anastasiaL -- 2024-11-13 3:15
+Finished project:
+Complete functionality (home page and edit page work)
+- stories that the user has contributed to are on the home page when they log in
+- once they have edited a story, they cannot edit it again
+- fixed all bugs (I hope)
+Complete design
+- modified appearances such as textbox and button styling, nav bar width, footer position
+Wrote user_database.py
+Reworked methods in __init__.py
+Overall the code is much cleaner and easier to read
+Lots of testing
