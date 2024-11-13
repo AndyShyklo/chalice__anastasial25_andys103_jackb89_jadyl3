@@ -98,7 +98,7 @@ def editable():
     editList = makeEditList(session['username'])
     if editList:
         return render_template("editable.html", rows = editList)
-    return render_template("editable.html", message = "No editable stories...yet!")
+    return render_template("editable.html", message = "No editable stories...check again later!")
     
 @app.route("/edit", methods=["GET", "POST"])
 def edit():

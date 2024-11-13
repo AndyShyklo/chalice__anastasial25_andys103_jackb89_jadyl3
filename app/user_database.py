@@ -10,7 +10,7 @@ USER_FILE="users.db"
 def createUsers():
     users = sqlite3.connect(USER_FILE)
     c = users.cursor()
-    command = "CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, viewable INTEGER[], viewable INTEGER[])"
+    command = "CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, viewable INTEGER[], editable INTEGER[])"
     c.execute(command)
     users.commit()
 
