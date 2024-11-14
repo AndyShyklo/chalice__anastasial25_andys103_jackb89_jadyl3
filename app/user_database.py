@@ -18,7 +18,7 @@ def addUser(username, password):
     users = sqlite3.connect(USER_FILE)
     c = users.cursor()
     if (c.execute("SELECT 1 FROM users WHERE username=?", (username,))).fetchone() == None:
-        c.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+        c.execute("INSERT INTO users (username, password, viewable) VALUES (?, ?, ?)", (username, password, "1"))
         users.commit()
         return
     return "Username taken"
@@ -108,3 +108,8 @@ def editStory(id, content, username):
         
     c.execute("UPDATE users SET viewable = ? WHERE username = ?", (nview, username))
     users.commit()
+
+def deleteUsers():
+    db = sqlite3.connect(USER_FILE) 
+    c = db.cursor()
+    c.execute("DROP table users")
