@@ -11,10 +11,16 @@ app = Flask(__name__)    #create Flask object
 
 app.secret_key = os.urandom(32)
 
+# createStories()
+# deleteStories()
+createStories()
+addFrankenstien()
+# createUsers()
+# deleteUsers()
+createUsers()
+
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    createStories()
-    createUsers()
     if 'username' not in session:
         return render_template('home.html')
     viewList = makeViewList(session['username'])
